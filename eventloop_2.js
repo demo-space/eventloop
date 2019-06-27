@@ -1,17 +1,21 @@
+function async1() {
+  console.log("async1 start")
+
+  async2().then(() => console.log("async1 end"))
+}
+
+function async2() {
+  console.log("async2")
+  return Promise.resolve()
+}
+
 console.log("script start")
 
 setTimeout(function() {
   console.log("setTimeout")
 }, 0)
 
-console.log("async1 start")
-
-new Promise(resolve => {
-  console.log("async2")
-  resolve()
-}).then(() => {
-  console.log("async1 end")
-})
+async1()
 
 new Promise(function(resolve) {
   console.log("promise1")

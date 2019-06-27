@@ -26,4 +26,4 @@
 
 async/await 可以和 Promise 相似地去理解，eventloop_2.js 效果和 eventloop_1.js 相同
 
-其实 async 函数只是会返回一个 Promise 而已，同步的代码还是会同步执行掉，直到遇到 await，await 之后的代码可以理解成 Promise.then 里的代码
+其实 async 函数只是会返回一个 Promise 而已，**同步的代码还是会同步执行掉**（本质是个函数不变），直到遇到 await，await 之后的代码可以理解成 Promise.then 里的代码，要等异步事件执行完后才会执行（如果并不是异步，也会包装成一个 Promise）
